@@ -1,0 +1,12 @@
+{
+    "name": "GabrielMourao/LaravelObjectViews",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Gabriel Mourão",
+            "email": "gabrielmouraodemelo@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
