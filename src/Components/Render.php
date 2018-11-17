@@ -6,7 +6,7 @@
  * Time: 1:59 PM
  */
 
-namespace GabrielMourao\LaravelObjectViews\Components;
+namespace AnthraxisBR\LaravelObjectViews\Components;
 
 
 class Render
@@ -22,40 +22,72 @@ class Render
 
 
         foreach ($object as $elementName => $element) {
-            if (in_array(key($element), $this->renderables)) {
-                $open = true;
 
-                $this->html .= '<' . key($element) . ' data-key="' . $element[key($element)]->key . '">';
+            /*
+            if(is_string($element))
+            {
+                $object['title'] = $element;
+                return false;
             }
+*/
+            if(is_string($element)){
 
+            }else{
 
-            foreach ($element as  $subElementName => $subElement) {
-                if(is_object($subElement))
+                if (in_array(key($element), $this->renderables))
                 {
-                    $subElement = (array) $subElement;
+                    $open = true;
+
+                    $this->html .= '<' . key($element) . ' data-key="' . $element[key($element)]->key . '">';
                 }
-                foreach ($subElement as $itemKey => $item) {
 
-                    if (in_array($itemKey, $this->renderables)) {
-                        $subOpen = true;
-                        $this->html .= '<' . $itemKey . '>';
+
+                foreach ($element as  $subElementName => $subElement)
+                {
+                    if(is_object($subElement))
+                    {
+                        $subElement = (array) $subElement;
                     }
+                    foreach ($subElement as $itemKey => $item)
+                    {
 
-                    if (in_array($itemKey, $this->renderables)) {
-                        foreach ($subElement[$itemKey] as $subItemKey => $subItem) {
-                            $this->html .= $subItem;
+                        if (in_array($itemKey, $this->renderables))
+                        {
+                            $subOpen = true;
+                            if($itemKey === 'button'){
+                                if(isset($item->type)){
+                                    $this->html .= '<' . $itemKey . ' class="btn btn-' . $item->type . '" >';
+                                }else{
+                                    $this->html .= '<' . $itemKey . ' class="btn btn-default" >';
+                                }
+                            }else{
+
+                                $this->html .= '<' . $itemKey . '>';
+                            }
+                        }
+
+                        if (in_array($itemKey, $this->renderables))
+                        {
+                            foreach ($subElement[$itemKey] as $subItemKey => $subItem)
+                            {
+                                if($subItemKey === 'text')
+                                {
+                                    $this->html .= $subItem;
+                                }
+                            }
+                        }
+                        if (in_array($itemKey, $this->renderables) and $open)
+                        {
+                            $this->html .= '</' . $itemKey . '>';
+                            $subOpen  = false;
                         }
                     }
-                    if (in_array($itemKey, $this->renderables) and $open) {
-                        $this->html .= '</' . $itemKey . '>';
-                        $subOpen  = false;
-                    }
                 }
-            }
 
-            if (in_array(key($element), $this->renderables) and $open) {
-                $this->html .= '</' . key($element) . '>';
-                $open = false;
+                if (in_array(key($element), $this->renderables) and $open) {
+                    $this->html .= '</' . key($element) . '>';
+                    $open = false;
+                }
             }
         }
         $this->html .= '<script>';

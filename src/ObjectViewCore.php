@@ -6,13 +6,13 @@
  * Time: 10:29 PM
  */
 
-namespace GabrielMourao\LaravelObjectViews;
+namespace AnthraxisBR\LaravelObjectViews;
 
-use GabrielMourao\LaravelObjectViews\RenderResources;
+use AnthraxisBR\LaravelObjectViews\RenderResources;
 
-use GabrielMourao\LaravelObjectViews\Abstracts\ObjectViewAbstract;
-use GabrielMourao\LaravelObjectViews\Traits\EventsTrait;
-use GabrielMourao\LaravelObjectViews\Traits\JavaScriptTrait;
+use AnthraxisBR\LaravelObjectViews\Abstracts\ObjectViewAbstract;
+use AnthraxisBR\LaravelObjectViews\Traits\EventsTrait;
+use AnthraxisBR\LaravelObjectViews\Traits\JavaScriptTrait;
 
 
 class ObjectViewCore extends ObjectViewAbstract implements ObjectView
@@ -42,6 +42,9 @@ class ObjectViewCore extends ObjectViewAbstract implements ObjectView
 
     public function __construct()
     {
+
+        $this->title = getenv('TITLE');
+
         parent::__construct();
     }
 
@@ -101,6 +104,11 @@ class ObjectViewCore extends ObjectViewAbstract implements ObjectView
         return $this;
     }
 
+    public function setSuccessButton()
+    {
+
+        $this->div[$this->elementsCount]->button->type = 'success';
+    }
 
     public function fillWith($event, $object)
     {

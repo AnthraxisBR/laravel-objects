@@ -6,9 +6,9 @@
  * Time: 10:28 PM
  */
 
-namespace GabrielMourao\LaravelObjectViews;
+namespace AnthraxisBR\LaravelObjectViews;
 
-use GabrielMourao\LaravelObjectViews\Events\Click;
+use AnthraxisBR\LaravelObjectViews\Events\Click;
 
 interface ObjectView
 {

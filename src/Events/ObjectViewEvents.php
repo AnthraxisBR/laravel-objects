@@ -6,9 +6,9 @@
  * Time: 11:06 PM
  */
 
-namespace GabrielMourao\LaravelObjectViews\Events;
+namespace AnthraxisBR\LaravelObjectViews\Events;
 
-use GabrielMourao\LaravelObjectViews\Contracts\ClickContract;
+use AnthraxisBR\LaravelObjectViews\Contracts\ClickContract;
 
 class ObjectViewEvents
 {

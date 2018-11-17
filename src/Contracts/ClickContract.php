@@ -6,7 +6,7 @@
  * Time: 12:34 PM
  */
 
-namespace GabrielMourao\LaravelObjectViews\Contracts;
+namespace AnthraxisBR\LaravelObjectViews\Contracts;
 
 interface ClickContract
 {

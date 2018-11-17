@@ -6,7 +6,7 @@
  * Time: 12:15 PM
  */
 
-namespace GabrielMourao\LaravelObjectViews\Components;
+namespace AnthraxisBR\LaravelObjectViews\Components;
 
 class Style
 {

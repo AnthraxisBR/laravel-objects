@@ -6,10 +6,10 @@
  * Time: 11:03 PM
  */
 
-namespace GabrielMourao\LaravelObjectViews\Abstracts;
+namespace AnthraxisBR\LaravelObjectViews\Abstracts;
 
-use GabrielMourao\LaravelObjectViews\Events\ObjectViewEvents;
-use GabrielMourao\LaravelObjectViews\Components\Render;
+use AnthraxisBR\LaravelObjectViews\Events\ObjectViewEvents;
+use AnthraxisBR\LaravelObjectViews\Components\Render;
 
 abstract class ObjectViewAbstract extends ObjectViewEvents
 {
@@ -56,6 +56,7 @@ abstract class ObjectViewAbstract extends ObjectViewEvents
                 }
             }
         }
+        $render['title'] = $this->title;
         $render['script'] = $this->script;
         return $this->view($render);
     }

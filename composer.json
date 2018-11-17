@@ -1,10 +1,10 @@
 {
-    "name": "GabrielMourao/LaravelObjectViews",
+    "name": "AnthraxisBR/LaravelObjectViews",
     "type": "library",
     "authors": [
         {
             "name": "Gabriel Mourão",
-            "email": "gabrielmouraodemelo@gmail.com"
+            "email": "AnthraxisBRdemelo@gmail.com"
         }
     ],
     "minimum-stability": "dev",

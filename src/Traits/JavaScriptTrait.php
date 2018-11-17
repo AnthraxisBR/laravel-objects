@@ -6,7 +6,7 @@
  * Time: 12:50 PM
  */
 
-namespace GabrielMourao\LaravelObjectViews\Traits;
+namespace AnthraxisBR\LaravelObjectViews\Traits;
 
 
 trait JavaScriptTrait

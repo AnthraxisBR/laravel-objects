@@ -6,9 +6,9 @@
  * Time: 12:10 PM
  */
 
-namespace GabrielMourao\LaravelObjectViews\Traits;
+namespace AnthraxisBR\LaravelObjectViews\Traits;
 
-use GabrielMourao\LaravelObjectViews\Contracts\ClickContract;
+use AnthraxisBR\LaravelObjectViews\Contracts\ClickContract;
 
 trait EventsTrait
 {
