@@ -2,36 +2,36 @@
 Package to handle HTML Elements and Boostrap 4 CSS with PHP Objects
 
       
-class IndexController extends Controller
-{
-    public function index(ObjectView $objectView)
-    {
-        $this->objectView1 = clone $objectView->div(function($div){
+      class IndexController extends Controller
+      {
+            public function index(ObjectView $objectView)
+            {
+                  $this->objectView1 = clone $objectView->div(function($div){
 
-            return $div->setAsRenderable();
-        });
+                        return $div->setAsRenderable();
+                  });
 
-        $this->spanTeste = clone $objectView->span('Span teste');
+                  $this->spanTeste = clone $objectView->span('Span teste');
 
-        $objectView->div(function($div){
+                  $objectView->div(function($div){
 
-            $div->setAsRenderable();
-            $div->button('button',function($on) {
+                        $div->setAsRenderable();
+                        
+                        $div->button('button',function($on) {
 
-                dd($on);
-                $on->setSuccessButton();
+                              $on->setSuccessButton();
 
-                $on->click(function($e){
+                              $on->click(function($e){
 
-                    $this->objectView1->fillWith($e,$this->spanTeste);
+                                    $this->objectView1->fillWith($e,$this->spanTeste);
 
-                    $e->injectScript($this->objectView1);
+                                    $e->injectScript($this->objectView1);
 
-                });
-            });
+                              });
+                        });
 
-        });
+                  });
 
-        return view( 'index',['objects' => $objectView->render()]);
+              return view( 'index',['objects' => $objectView->render()]);
+          }
     }
-}
